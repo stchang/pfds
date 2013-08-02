@@ -3,9 +3,12 @@
 (require rackunit)
 
 ;; sums front n elements of a q
-(define (sum-front-n q n)
+#;(define (sum-front-n q n)
   (let loop ([m 0] [q q])
     (if (= m n) 0 (+ (head q) (loop (add1 m) (tail q))))))
+(define (sum-front-n q n)
+  (let loop ([m 0] [q q])
+    (if (= m n) 0 (match q [(queue hd tl) (+ hd (loop (add1 m) tl))]))))
 
 (let* ([q-size 1000]
        [q-f add1]
