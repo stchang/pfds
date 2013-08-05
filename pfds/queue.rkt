@@ -42,10 +42,11 @@
 ;    [(_ hd tl) (app (λ (q) (list (head q) (tail q))) (list hd tl))]))
 
 ;(define-view (queue-view hd tl) (head tail))
-(define (head+tail-as-list q)
+#;(define (head+tail-as-list q)
   (define-values (h t) (head+tail q))
   (list h t))
-(define-view (queue-view hd tl) head+tail-as-list);
+(define-view queue-view head+tail)
+;(define-view queue-view head tail)
 ;(define (queue-view x ...) queue-rear) ; this works, but only if the accessor is an identifier
 ; this does not work
 ;(define-view (queue-view x ...) (λ (q) (append (queue-front q) (reverse (queue-rear q)))))
